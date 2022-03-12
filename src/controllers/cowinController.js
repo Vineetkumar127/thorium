@@ -56,7 +56,7 @@ let getByPin = async function (req, res) {
         res.status(500).send({ msg: err.message })
     }
 }
-
+//Assignment Question 1(vaccination sesssins by District Id)
 //WRITE A GET API TO GET THE LIST OF ALL THE "vaccination sessions by district id" for any given district id 
 //and for any given date
 
@@ -104,6 +104,10 @@ let getOtp = async function (req, res) {
     }
 }
 
+
+
+//Assignment Q2.(Sorted cities as per temp)
+
 let getSortedCities =async function (req,res){
     try {
         let cities =["Bengaluru","Mumbai", "Delhi", "Kolkata", "Chennai", "London", "Moscow"]
@@ -134,6 +138,9 @@ let getSortedCities =async function (req,res){
 
     }
 }
+
+
+//Assignment Q3.(Meme Creation) 
 
 const memeHandler = async function(req,res){
     try{
