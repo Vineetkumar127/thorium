@@ -15,7 +15,7 @@ router.get('/getBlog', blogController.getBlogs)
 
 router.put('/blogs/:blogId', blogController.updating)
 
-//router.delete('/blogs/:blogId', blogController.deleting)
+router.delete('/blogs/:blogId', blogController.deleting)
 
 
 

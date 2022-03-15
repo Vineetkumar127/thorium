@@ -101,8 +101,8 @@ const deleting = async function (req, res) {
         let data = await blogModel.findById(id)
         if (data) {
             if (data.isDeleted == false) {
-                data2 = await blogModel.findOneAndUpdate({ _id: id }, { isDeleted: true, deletedAt: new Date() }, { new: true })
-                res.status(200).send({ status: true, msg: "data deleted" })
+                let data2 = await blogModel.findOneAndUpdate({ _id: id }, { isDeleted: true, deletedAt: new Date() }, { new: true })
+                res.status(200).send({ status: true, msg: data2 })
             } else {
                 res.status(200).send({ status: false, msg: "data already deleted" })
             }
