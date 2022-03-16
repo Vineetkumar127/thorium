@@ -114,9 +114,34 @@ const deleting = async function (req, res) {
     catch (err) { res.status(500).send({status:false, message:err.message }) }
 }
 
+const deletedBlogs = async function (req, res) {
+    try {
+        let author_Id = req.query.author_Id
+        let category = req.query.category
+        let tag = req.query.tag
+        let subCategory = req.query.subCategory
+        console.log(`query params are:${author_Id} ${category} ${tag} ${subCategory}`)
+        if (!(author_Id || category || tag || subCategory)) {
+            res.status(404).send({ status: false, msg: 'blog data required' })
+        } else {
+
+            let newBlogs = await blogModel.deleteMany({ $or: [{ author_Id: author_Id }, { category: category }, { tag: tag }, { subCategory: subCategory }] })
+
+            res.status(200).send({ status: true, msg: newBlogs })
+        }
+    } catch (err) {
+        res.status(500).send({ status: false, output: err.mesage })
+    }
+
+}
+
+
+
+
 
 
 module.exports.Blogs = Blogs;
 module.exports.getBlogs = getBlogs;
 module.exports.updating = updating;
 module.exports.deleting = deleting;
+module.exports.deletedBlogs = deletedBlogs;
